@@ -23,7 +23,7 @@ public class ShowHeaders extends HttpServlet {
         } 
         
         public void handleRequest(HttpServletRequest req, HttpServletResponse res) throws IOException { 
-
+                Map<String, String> result = new HashMap<>();
                 PrintWriter out = res.getWriter(); 
                 res.setContentType("text/plain"); 
                 out.println("Headers:\n");
@@ -32,7 +32,7 @@ public class ShowHeaders extends HttpServlet {
                 while (headerNames.hasMoreElements()) { 
 
                         String key = (String) headerNames.nextElement();
-                        String value = request.getHeader(key);
+                        String value = req.getHeader(key);
                         result.put(key, value);
 
                 } 
