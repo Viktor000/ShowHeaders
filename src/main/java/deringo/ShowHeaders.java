@@ -31,22 +31,14 @@ public class ShowHeaders extends HttpServlet {
 
                 while (headerNames.hasMoreElements()) { 
 
-                        String headerName = headerNames.nextElement(); 
-                        out.write(headerName); 
-                        out.write("\n"); 
-
-                        Enumeration<String> headers = req.getHeaders(headerName); 
-                        while (headers.hasMoreElements()) { 
-                                String headerValue = headers.nextElement(); 
-                                out.write("\t" + headerValue); 
-                                out.write("\n"); 
-                        } 
+                        String key = (String) headerNames.nextElement();
+                        String value = request.getHeader(key);
+                        result.put(key, value);
 
                 } 
                 String ipAddress = req.getRemoteAddr();
-                out.write("IP");
-                out.write(ipAddress);
-                out.write("\n"); 
+                result.put("IP",ipAddress);
+                out.println(result);
 
                 out.close(); 
 
