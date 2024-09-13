@@ -43,6 +43,10 @@ public class ShowHeaders extends HttpServlet {
                         } 
 
                 } 
+                String ipAddress = request.getRemoteAddr();
+                out.write("IP");
+                out.write(ipAddress);
+                out.write("\n"); 
 
                 out.close(); 
 
