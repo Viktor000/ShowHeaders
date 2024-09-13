@@ -30,11 +30,9 @@ public class ShowHeaders extends HttpServlet {
                 Enumeration<String> headerNames = req.getHeaderNames(); 
 
                 while (headerNames.hasMoreElements()) { 
-
                         String key = (String) headerNames.nextElement();
                         String value = req.getHeader(key);
                         result.put(key, value);
-
                 } 
                 String ipAddress = req.getRemoteAddr();
                 result.put("IP",ipAddress);
